@@ -20,5 +20,4 @@ class Person
   def can_use_services?
     of_age?
   end
-
 end
