@@ -3,9 +3,9 @@ require './app'
 def ask_for_student_parameters
   print 'Enter the name of student: '
   name = gets.chomp
-  print 'Enter the age of student: '
+  print "Enter the age of #{name}: "
   age = gets.chomp
-  print 'Does the student have parent permission? [Y/N]: '
+  print "Does #{name} have parent permission? [Y/N]: "
   parent_permission = gets.chomp
   [name, age, parent_permission]
 end
@@ -13,9 +13,9 @@ end
 def ask_for_teacher_parameters
   print 'Enter the name of teacher: '
   name = gets.chomp
-  print 'Enter the age of teacher: '
+  print "Enter the age of #{name}: "
   age = gets.chomp
-  print 'Enter the specialization of teacher: '
+  print "What is the specialization of #{name}?: "
   specialization = gets.chomp
   [name, age, specialization]
 end
@@ -44,7 +44,7 @@ end
 def handle_create_book(app)
   print 'Enter the title of book: '
   title = gets.chomp
-  print 'Enter the author of book: '
+  print "Enter the author of #{title}: "
   author = gets.chomp
   app.create_book(title, author)
   puts '<-- Book Created Successfully -->'
