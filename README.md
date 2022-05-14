@@ -8,6 +8,23 @@
 
 - Ruby
 
+## Getting Started
+
+To get a local copy up and running follow these simple example steps.
+
+### Prerequisites
+
+- Ruby
+
+### Setup
+
+- Clone the GitHub Repository
+- Go to the Project Directory
+
+### Usage
+
+- Run `ruby main.rb`
+
 ## Authors
 
 👤 **Awais Amjed**
