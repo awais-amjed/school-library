@@ -29,7 +29,9 @@ class App
   end
 
   def list_all_rentals(id)
-    selected_person = @people.select { |person| person.id == id }
+    selected_person = @people.find { |person| person.id == id }
+    return nil if selected_person.nil?
+
     selected_person.rentals.each do |rental|
       puts "Date: \"#{rental.date}\", Book: \"#{rental.book.title}\" by #{rental.book.author}"
     end

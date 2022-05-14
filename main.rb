@@ -80,6 +80,12 @@ def handle_create_rental(app)
   puts '<-- Rental Created Successfully -->'
 end
 
+def handle_show_rentals(app)
+  print 'Enter the ID of person: '
+  id = gets.chomp
+  puts '<-- Invalid ID -->' if id.to_i.zero? || app.list_all_rentals(id.to_i).nil?
+end
+
 def handle_choice(app, choice)
   case choice
   when '1'
@@ -93,7 +99,7 @@ def handle_choice(app, choice)
   when '5'
     handle_create_rental(app)
   when '6'
-    app.list_all_people
+    handle_show_rentals(app)
   else
     puts '<-- Wrong Choice! Try again -->'
   end
