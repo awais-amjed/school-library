@@ -50,6 +50,36 @@ def handle_create_book(app)
   puts '<-- Book Created Successfully -->'
 end
 
+def exists_in_array?(array, choice)
+  int_choice = choice.to_i
+  if int_choice <= 0 || int_choice > array.length
+    puts '<-- Wrong choice! Try again -->'
+    return false
+  end
+  true
+end
+
+def handle_create_rental(app)
+  puts 'Select a book from the following list by number'
+  app.list_all_books(show_index: true)
+  print 'Your choice: '
+  choice = gets.chomp
+  return unless exists_in_array?(app.books, choice)
+
+  book = app.books[choice.to_i - 1]
+  puts 'Select a person from the following list by number (not id)'
+  app.list_all_people(show_index: true)
+  print 'Your choice: '
+  choice = gets.chomp
+  return unless exists_in_array?(app.people, choice)
+
+  person = app.people[choice.to_i - 1]
+  print 'Enter Date of Rental: '
+  date = gets.chomp
+  app.create_rental(book, person, date)
+  puts '<-- Rental Created Successfully -->'
+end
+
 def handle_choice(app, choice)
   case choice
   when '1'
@@ -61,7 +91,7 @@ def handle_choice(app, choice)
   when '4'
     handle_create_book(app)
   when '5'
-    app.list_all_people
+    handle_create_rental(app)
   when '6'
     app.list_all_people
   else
