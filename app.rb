@@ -13,6 +13,7 @@ class App
 
   def list_all_books(show_index: false)
     index = 1
+    puts 'We have no books yet ;-;' if @books.length.zero?
     @books.each do |book|
       puts "#{"#{index}) " if show_index}Title: \"#{book.title}\", Author: #{book.author}"
       index += 1
@@ -20,6 +21,7 @@ class App
   end
 
   def list_all_people(show_index: false)
+    puts 'No one comes here ;-;' if @books.length.zero?
     index = 1
     @people.each do |person|
       puts "#{if show_index
@@ -32,6 +34,7 @@ class App
     selected_person = @people.find { |person| person.id == id }
     return nil if selected_person.nil?
 
+    puts 'This person has no rentals' if selected_person.rentals.length.zero?
     selected_person.rentals.each do |rental|
       puts "Date: \"#{rental.date}\", Book: \"#{rental.book.title}\" by #{rental.book.author}"
     end
