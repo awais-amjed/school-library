@@ -41,6 +41,15 @@ def handle_create_person(app)
   end
 end
 
+def handle_create_book(app)
+  print 'Enter the title of book: '
+  title = gets.chomp
+  print 'Enter the author of book: '
+  author = gets.chomp
+  app.create_book(title, author)
+  puts '<-- Book Created Successfully -->'
+end
+
 def handle_choice(app, choice)
   case choice
   when '1'
@@ -49,6 +58,12 @@ def handle_choice(app, choice)
     app.list_all_people
   when '3'
     handle_create_person(app)
+  when '4'
+    handle_create_book(app)
+  when '5'
+    app.list_all_people
+  when '6'
+    app.list_all_people
   else
     puts '<-- Wrong Choice! Try again -->'
   end
