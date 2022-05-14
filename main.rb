@@ -44,7 +44,7 @@ end
 def handle_create_book(app)
   print 'Enter the title of book: '
   title = gets.chomp
-  print "Enter the author of #{title}: "
+  print "Who is the author of #{title}?: "
   author = gets.chomp
   app.create_book(title, author)
   puts '<-- Book Created Successfully -->'
