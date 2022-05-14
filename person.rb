@@ -1,4 +1,5 @@
 require './nameable'
+require './rental'
 
 class Person < Nameable
   attr_reader :id
@@ -13,9 +14,8 @@ class Person < Nameable
     @rentals = []
   end
 
-  def add_rental(rental)
-    @rentals << rental
-    rental.person = self
+  def add_rental(date, book)
+    @rentals << Rental.new(date, book, self)
   end
 
   def can_use_services?
