@@ -21,7 +21,7 @@ class App
   end
 
   def list_all_people(show_index: false)
-    puts 'No one comes here ;-;' if @people.length.zero?
+    puts 'No one comes here ;-;' if @books.length.zero?
     index = 1
     @people.each do |person|
       puts "#{if show_index
